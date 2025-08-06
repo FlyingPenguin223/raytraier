@@ -1,0 +1,17 @@
+.{
+    .name = .electricity,
+
+    .fingerprint = 0xfbf9c3d4c611371,
+
+    .version = "0.0.0",
+
+    .minimum_zig_version = "0.14.1",
+
+    .dependencies = .{},
+
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+    },
+}
