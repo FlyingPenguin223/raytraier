@@ -16,7 +16,6 @@ pub fn build(b: *std.Build) void {
         .root_module = exe_mod,
     });
     exe.linkSystemLibrary("SDL2");
-    exe.linkSystemLibrary("imgui");
     exe.linkLibC();
 
     b.installArtifact(exe);
