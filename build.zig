@@ -12,7 +12,7 @@ pub fn build(b: *std.Build) void {
     });
 
     const exe = b.addExecutable(.{
-        .name = "electricity",
+        .name = "raytraier",
         .root_module = exe_mod,
     });
     exe.linkSystemLibrary("SDL2");

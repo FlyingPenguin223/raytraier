@@ -1,7 +1,7 @@
 .{
-    .name = .electricity,
+    .name = .raytraier,
 
-    .fingerprint = 0xfbf9c3d4c611371,
+    .fingerprint = 0x2c51d963aa15d439,
 
     .version = "0.0.0",
 
