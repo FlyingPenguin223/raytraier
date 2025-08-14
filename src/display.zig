@@ -79,12 +79,18 @@ pub fn pixel_color(self: Self, x: i32, y: i32) math.Vec3 {
     const discriminant = b * b - 4 * a * c;
 
     if (discriminant > 0) {
-        return .{ .x = 1, .y = 0, .z = 0 };
-    } else {
+        // const t0: f32 = (-b + std.math.sqrt(discriminant)) / (2 * a);
+        const t1: f32 = (-b - std.math.sqrt(discriminant)) / (2 * a);
+
+        const pos = direction.scale(t1).add(origin).normalize();
+        const light = math.vec3(1, -1, 1).normalize();
+        const color = 1 - ((pos.dot(light) + 1) / 2);
         return .{
-            .x = 0,
-            .y = 0,
-            .z = 0,
+            .x = color,
+            .y = color,
+            .z = color,
         };
+    } else {
+        return .{ .x = 0, .y = 0, .z = 0 };
     }
 }
