@@ -84,12 +84,10 @@ pub fn pixel_color(self: Self, x: i32, y: i32) math.Vec3 {
 
         const pos = direction.scale(t1).add(origin).normalize();
         const light = math.vec3(1, -1, 1).normalize();
-        const color = 1 - ((pos.dot(light) + 1) / 2);
-        return .{
-            .x = color,
-            .y = color,
-            .z = color,
-        };
+        const sphere_color = math.vec3(0, 1, 1).normalize();
+        const brightness = std.math.clamp(pos.dot(light), 0, 1);
+        const color = sphere_color.scale(brightness);
+        return color;
     } else {
         return .{ .x = 0, .y = 0, .z = 0 };
     }
